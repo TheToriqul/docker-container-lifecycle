@@ -123,6 +123,11 @@ Follow the documented examples in the repository to understand:
 - Data persistence problems
 </details>
 
+## 📝 Documentation
+
+- [Poridhi Labs](https://poridhi.io/)
+- [Docker Documentation](https://docs.docker.com/)
+
 ## 📫 Contact
 - 📧 Email: toriqul.int@gmail.com
 - 📱 Phone: 
@@ -131,6 +136,10 @@ Follow the documented examples in the repository to understand:
 
 ## 🔗 Project Links
 - [GitHub Repository](https://github.com/TheToriqul/docker-container-lifecycle)
+
+## 👏 Acknowledgments
+
+I'd like to thank the Poridhi Labs and Docker communities for their extensive documentation and tutorials which greatly aided my learning process.
 
 ---
 
