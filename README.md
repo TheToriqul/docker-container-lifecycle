@@ -2,78 +2,108 @@
 [![GitHub](https://img.shields.io/badge/GitHub-Docker_Container_Lifecycle-blue?style=flat&logo=github)](https://github.com/TheToriqul/docker-container-lifecycle)
 [![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED?style=flat&logo=docker)](https://www.docker.com/)
 [![Ubuntu](https://img.shields.io/badge/Ubuntu-Featured-E95420?style=flat&logo=ubuntu)](https://ubuntu.com/)
+[![Bash](https://img.shields.io/badge/Bash-Script-4EAA25?style=flat&logo=gnu-bash)](https://www.gnu.org/software/bash/)
 
 ## 📋 Overview
-This project demonstrates my practical understanding of Docker container lifecycle management, showcasing hands-on experience with container operations from creation to deletion. Through this implementation, I've developed practical skills in container management, data persistence, and Docker CLI operations, making it valuable for DevOps engineers and developers working with containerization.
+A comprehensive exploration of Docker container lifecycle management, demonstrating practical implementation of container operations from creation to deletion. This project serves as both a learning resource and reference implementation for DevOps engineers and developers working with containerization technologies. Currently actively maintained and updated with best practices.
 
 ## 🏗 Architecture
 ```mermaid
 graph TD
-    A[Container Creation] -->|docker run| B[Running Container]
-    B -->|Ctrl-PQ| C[Container Running in Background]
-    C -->|docker stop| D[Stopped Container]
-    D -->|docker start| B
-    D -->|docker rm| E[Container Deleted]
-    B -->|docker exec| F[Interactive Shell]
-    F -->|File Operations| G[Data Management]
+    subgraph "Container Lifecycle States"
+        A[Container Creation] -->|docker run| B[Running Container]
+        B -->|Ctrl-PQ| C[Background Process]
+        B -->|docker stop| D[Stopped Container]
+        D -->|docker start| B
+        D -->|docker rm| E[Deleted]
+    end
+    
+    subgraph "Data Management"
+        F[Host System] -->|docker cp| G[Container Filesystem]
+        G -->|Volume Mount| H[Persistent Storage]
+    end
+    
+    subgraph "Network Operations"
+        I[Container Network] -->|Port Mapping| J[Host Network]
+        I -->|Container Network| K[Inter-Container Communication]
+    end
 ```
 
 ## 💻 Technical Stack
-- **Container Runtime**: Docker Engine
+- **Container Runtime**: Docker Engine v24.0+
 - **Base Image**: Ubuntu Latest
-- **Shell**: Bash
+- **Shell**: Bash 5.0+
 - **Documentation**: Markdown
+- **Scripting**: Shell Scripts
+- **Version Control**: Git
 
 ## ⭐ Key Features
-1. Container Management
-   - Container creation with custom naming
+1. Container Lifecycle Management
+   - Container creation with customization
    - Interactive shell access
-   - Background process management
-   - Container lifecycle control
+   - State management operations
+   - Resource cleanup procedures
 
 2. Data Operations
    - File system manipulation
+   - Volume management
    - Data persistence verification
-   - Directory navigation
-   - File content management
+   - File transfer utilities
 
-3. State Management
-   - Container state transitions
-   - Process supervision
-   - Status monitoring
-   - Resource cleanup
+3. Process Management
+   - Background process handling
+   - Process monitoring
+   - Resource usage tracking
+   - State transition management
 
-4. CLI Operations
-   - Docker command mastery
-   - Container inspection
-   - Process listing
-   - Error handling
+4. Networking
+   - Port mapping
+   - Network creation
+   - Container networking
+   - Network isolation
+
+5. Resource Control
+   - Memory limitations
+   - CPU constraints
+   - Storage management
+   - Process limitations
+
+6. Monitoring & Logging
+   - Container stats
+   - Log management
+   - Event monitoring
+   - Health checks
 
 ## 📚 Learning Journey
 ### Technical Mastery:
-1. Docker Container Lifecycle States
-2. Data Persistence in Containers
-3. Container Process Management
-4. Docker CLI Operations
-5. Container Resource Management
+1. Docker Container Architecture
+2. Container State Management
+3. Resource Optimization
+4. Networking Concepts
+5. Storage Management
+6. Security Best Practices
+7. Performance Monitoring
+8. Shell Scripting
 
 ### Professional Development:
-1. DevOps Best Practices
+1. DevOps Methodologies
 2. System Administration
 3. Documentation Skills
-4. Troubleshooting Methodology
-5. Resource Management
+4. Problem-solving Strategies
+5. Resource Planning
 
 ## 🔄 Future Enhancements
 <details>
 <summary>View Planned Improvements</summary>
 
-1. Multi-container orchestration
-2. Volume management implementation
-3. Network configuration examples
-4. Resource limitation demonstrations
-5. Container health monitoring
-6. Automated lifecycle scripts
+1. Container orchestration examples
+2. Advanced networking scenarios
+3. Custom image building
+4. Monitoring integration
+5. Security hardening
+6. Automated testing
+7. CI/CD integration
+8. Performance optimization
 </details>
 
 ## ⚙️ Installation
@@ -82,8 +112,9 @@ graph TD
 
 ### Prerequisites
 - Docker Engine installed
+- Git for version control
 - Basic command line knowledge
-- Ubuntu base image
+- Ubuntu base image pulled
 
 ### Setup Steps
 1. Clone the repository:
@@ -94,9 +125,13 @@ graph TD
    ```bash
    cd docker-container-lifecycle
    ```
-3. Ensure Docker is running:
+3. Verify Docker installation:
    ```bash
    docker --version
+   ```
+4. Pull the Ubuntu image:
+   ```bash
+   docker pull ubuntu:latest
    ```
 </details>
 
@@ -105,28 +140,48 @@ graph TD
 <summary>View Usage Details</summary>
 
 ### Basic Usage
-Follow the documented examples in the repository to understand:
-- Container creation and naming
-- Interactive shell access
-- Data manipulation
-- State management
+- Create and manage containers
+- Execute commands inside containers
+- Manage container states
+- Handle data persistence
 
 ### Advanced Features
-- Container state transitions
-- Data persistence verification
-- Process management
-- Resource cleanup
+- Network configuration
+- Volume management
+- Resource constraints
+- Container monitoring
 
 ### Troubleshooting
-- Common container issues
 - State verification
-- Data persistence problems
+- Log analysis
+- Network debugging
+- Resource monitoring
+</details>
+
+## 🛠 Development
+<details>
+<summary>View Development Details</summary>
+
+### Script Management
+- Organize scripts by functionality
+- Maintain consistent naming conventions
+- Document all commands
+- Version control integration
+
+### Testing
+- Manual testing procedures
+- Command verification
+- State transition testing
+- Error handling verification
 </details>
 
 ## 📝 Documentation
 
-- [Poridhi Labs](https://poridhi.io/)
-- [Docker Documentation](https://docs.docker.com/)
+- Command Reference [(`scripts.sh`)](./script.sh)
+- Architecture Guide [(`architecture.md`)](./architecture.md)
+- Best Practices Guide [(`bestpractices.md`)](./bestpractices.md)
+- Troubleshooting Guide [(`troubleshooting.md`)](./troubleshooting.md)
+- Contributing Guidelines [(`contributing.md`)](./contributing.md)
 
 ## 📫 Contact
 - 📧 Email: toriqul.int@gmail.com
@@ -136,10 +191,14 @@ Follow the documented examples in the repository to understand:
 
 ## 🔗 Project Links
 - [GitHub Repository](https://github.com/TheToriqul/docker-container-lifecycle)
+- [Author GitHub](https://github.com/TheToriqul)
 
 ## 👏 Acknowledgments
-
-I'd like to thank the Poridhi Labs and Docker communities for their extensive documentation and tutorials which greatly aided my learning process.
+- [Poridhi for for excellent labs](https://poridhi.io/)
+- [Docker Community for excellent documentation](https://docs.docker.com/)
+- Ubuntu Team for reliable base images
+- Open Source Community for knowledge sharing
+- Fellow developers for insights and feedback
 
 ---
 
