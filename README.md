@@ -194,7 +194,7 @@ graph TD
 - [Author GitHub](https://github.com/TheToriqul)
 
 ## 👏 Acknowledgments
-- [Poridhi for for excellent labs](https://poridhi.io/)
+- [Poridhi for excellent labs](https://poridhi.io/)
 - [Docker Community for excellent documentation](https://docs.docker.com/)
 - Ubuntu Team for reliable base images
 - Open Source Community for knowledge sharing
